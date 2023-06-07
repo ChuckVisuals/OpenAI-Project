@@ -56,4 +56,24 @@ input {
     position: relative;
     top: -32px;
     right: -610px;
+    cursor: pointer;
+}
+
+.images-section {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.input-container {
+   
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;  
 }

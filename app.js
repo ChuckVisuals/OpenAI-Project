@@ -1,5 +1,6 @@
 const submitIcon = document.querySelector("#submit-icon")
 const inputElement = document.querySelector("input")
+const imageSection = document.querySelector('.image-section')
 var API_key = ""
 
 // Process the keys from the json file
@@ -30,9 +31,9 @@ async function fetchData() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            "prompt": inputElement.value,
-            "n": 4,
-            "size": "1024x1024"
+            prompt: inputElement.value,
+            n: 4,
+            size: "1024x1024"
         })
     }
 
@@ -40,6 +41,15 @@ async function fetchData() {
         const response = await fetch('https://api.openai.com/v1/images/generations', options)
         const data = await response.json()
         console.log(data)
+
+        data?.data.foreach(ImageObject => {
+            const imageContainer = document.createElement('div')
+            imageContainer.classList.add('image-container')
+            const imageElement = document.createElement('img')
+            imageElement.setAttribute('src',ImageObject.url)
+            imageContainer.append(imageElement)
+            imageSection.append(ImageContainer)
+        })
 
     } catch (error){
         console.log(error)
