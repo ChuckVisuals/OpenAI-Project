@@ -54,6 +54,6 @@ input {
 
 #submit-icon {
     position: relative;
-    top: 10px;
-    right: 30px;
+    top: -32px;
+    right: -610px;
 }
